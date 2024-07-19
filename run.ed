@@ -1,2 +1,2 @@
 #!/bin/bash
-python main.py ht.config
+python main.w11.py ht.config
