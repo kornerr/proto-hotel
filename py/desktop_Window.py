@@ -3,8 +3,8 @@ import arcade
 class desktop_Window(arcade.Window):
     def __init__(self, p):
         super().__init__(
-            p.c.windowWidth,
-            p.c.windowHeight,
+            int(p.c.windowWidth),
+            int(p.c.windowHeight),
             p.c.windowTitle,
         )
         self.antialiasing = p.c.windowAntialiasing
