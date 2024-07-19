@@ -1,0 +1,2 @@
+#!/bin/bash
+/c/Users/mk/AppData/Local/Programs/Python/Python311/python.exe $@
