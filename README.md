@@ -16,24 +16,24 @@
 
 1. Проверить работу Python и Git
 
-    * выполнить: python --version
-    * выполнить: git --version
+    * $ `python --version`
+    * $ `git --version`
 
 5. Склонировать прототип
 
-    * выполнить: git clone https://github.com/kornerr/proto-hotel
+    * $ `git clone https://github.com/kornerr/proto-hotel`
 
 6. Установить зависимости проекта
 
-    * выполнить: ./setup.w
+    * $ `./setup.w`
 
 7. Запустить проект 
 
-    * выполнить: ./run.w
+    * $ `./run.w`
 
 8. В случае пробле с питоном
 
-    * обновить файл python
+    * обновить файл `python`
         * прописать путь до питона напрямую
-    * обновить файлы setup.w и run.w
-        * заменить python на ./python
+    * обновить файлы `setup.w` и `run.w`
+        * заменить `python` на `./python`
