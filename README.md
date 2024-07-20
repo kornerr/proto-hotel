@@ -1,9 +1,11 @@
 # Инструкция для Приёмки-01 от 2024-07-20
 
 1. Установить Python 3.11.2
+
     https://www.python.org/downloads/release/python-3112/
     выбрать Windows installer (64-bit)
     выбрать Add python.exe to PATH
+
 2. Установить Git 2.45.2
     https://git-scm.com/download/win/
     выбрать Add a Git Bash Profile to Windows Terminal
