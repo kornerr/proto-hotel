@@ -23,6 +23,25 @@ def desktop_aux_convertValue(
     # String.
     return value
 
+def desktop_aux_createCommentSprite(
+    p: desktop_Platform,
+    name: str,
+    tree: dict[str, dict[str, str]],
+    key: str
+):
+    sp = arcade.Sprite()
+    sp.guid = name
+    desc = tree[key]
+    texName = desc["texture"]
+    sp.texture = p.textures[texName]
+    # Position.
+    sp.left = float(desc["left"])
+    sp.top = float(desc["top"])
+    # Visibility.
+    sp.visible = True if desc["visible"] == "true" else False
+
+    return sp
+
 def desktop_aux_createItemSprite(
     p: desktop_Platform,
     name: str,
