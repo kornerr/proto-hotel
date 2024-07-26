@@ -5,6 +5,7 @@ class ht_Context:
         self.cfgPath = None
         self.cfgTree = {}
         self.didClickMouse = []
+        self.didCreateConfigItemSprites = False
         self.didCreateConfigPlayerSprites = False
         self.didCreateConfigStaticSprites = False
         self.didLaunch = False

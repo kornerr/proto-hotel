@@ -14,10 +14,12 @@ class desktop_Window(arcade.Window):
     def on_draw(self):
         arcade.start_render()
         self.p.staticSprites.draw()
+        self.p.itemSprites.draw()
         self.p.playerSprites.draw()
 
     def on_mouse_press(self, x, y, button, key_modifiers):
         self.p.ctrl.set("didClickMouse", [x, y])
 
     def on_update(self, delta):
+        self.p.itemSprites.update_animation()
         self.p.playerSprites.update_animation()

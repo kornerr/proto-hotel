@@ -44,6 +44,7 @@ def process(c):
   # Perform context dependent calls of desktop functions.
   # Similar to context functions, but no platform is returned.
   desktop_applyConfigInit(p)
+  desktop_createConfigItemSprites(p)
   desktop_createConfigPlayerSprites(p)
   desktop_createConfigStaticSprites(p)
   desktop_loadConfigTextures(p)

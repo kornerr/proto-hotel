@@ -22,22 +22,22 @@ def desktop_applyConfigInit(p):
 #
 # Conditions:
 # 1. Config textures has just been loaded
-#def desktop_createConfigItemSprites(p):
-#    if (
-#        p.c.recentField != "didLoadConfigTextures"
-#    ):
-#        return
-#
-#    for key in p.c.cfgTree:
-#        if (
-#            cld_startswith(key, "item ")
-#        ):
-#            name = cfg_aux_subsectionName(key)
-#            sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
-#            p.statics[name] = sprite
-#            p.staticSprites.append(sprite)
-#    # Report finish.
-#    p.ctrl.set("didCreateConfigStaticSprites", True)
+def desktop_createConfigItemSprites(p):
+    if (
+        p.c.recentField != "didLoadConfigTextures"
+    ):
+        return
+
+    for key in p.c.cfgTree:
+        if (
+            cld_startswith(key, "item ")
+        ):
+            name = cfg_aux_subsectionName(key)
+            sprite = desktop_aux_createItemSprite(p, name, p.c.cfgTree[key])
+            p.items[name] = sprite
+            p.itemSprites.append(sprite)
+    # Report finish.
+    p.ctrl.set("didCreateConfigItemSprites", True)
 
 # Create player sprites
 #

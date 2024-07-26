@@ -23,6 +23,30 @@ def desktop_aux_convertValue(
     # String.
     return value
 
+def desktop_aux_createItemSprite(
+    p: desktop_Platform,
+    name: str,
+    desc: dict[str, str]
+):
+    sp = arcade.AnimatedTimeBasedSprite()
+    sp.guid = name
+    tex1 = desc["texture1"]
+    tex2 = desc["texture2"]
+    sp.texture = p.textures[tex1]
+    # Texture animation.
+    delay = float(desc["delay"])
+    a1 = arcade.sprite.AnimationKeyframe(0, delay, p.textures[tex1])
+    a2 = arcade.sprite.AnimationKeyframe(1, delay, p.textures[tex2])
+    sp.frames.append(a1)
+    sp.frames.append(a2)
+    # Position.
+    sp.left = float(desc["left"])
+    sp.top = float(desc["top"])
+    # Visibility.
+    sp.visible = True if desc["visible"] == "true" else False
+
+    return sp
+
 def desktop_aux_createPlayerSprite(
     p: desktop_Platform,
     name: str,
