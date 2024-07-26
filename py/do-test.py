@@ -11,8 +11,7 @@ from cfg_test import *
 
 functions = [
     test_cfg_parseConfigTree,
-    test_cfg_aux_staticSpriteName,
-    test_cfg_aux_textureName,
+    test_cfg_aux_subsectionName,
     test_cfg_aux_tree,
     test_cfg_aux_treeCreateSection,
     test_cfg_aux_treeSetKeyValue,

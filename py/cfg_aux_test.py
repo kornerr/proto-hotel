@@ -1,24 +1,18 @@
 from cfg_aux import *
 
-def test_cfg_aux_staticSpriteName(
-) -> str:
-    section = f"static \"s-floor1\""
-    name = cfg_aux_staticSpriteName(section)
-    if (
-        name == "s-floor1"
-    ):
-        return "OK: cfg_aux_staticSpriteName"
-    return "ERR: cfg_aux_staticSpriteName"
 
-def test_cfg_aux_textureName(
+def test_cfg_aux_subsectionName(
 ) -> str:
-    section = f"texture \"t-floor1\""
-    tex = cfg_aux_textureName(section)
+    section1 = f"static \"s-floor1\""
+    section2 = f"texture \"t-floor1\""
+    name1 = cfg_aux_subsectionName(section1)
+    name2 = cfg_aux_subsectionName(section2)
     if (
-        tex == "t-floor1"
+        name1 == "s-floor1" and
+        name2 == "t-floor1"
     ):
-        return "OK: cfg_aux_textureName"
-    return "ERR: cfg_aux_textureName"
+        return "OK: cfg_aux_subsectionName"
+    return "ERR: cfg_aux_subsectionName"
 
 def test_cfg_aux_tree(
 ) -> str:

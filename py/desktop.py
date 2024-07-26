@@ -18,6 +18,27 @@ def desktop_applyConfigInit(p):
         value = desktop_aux_convertValue(val)
         p.ctrl.set(key, value)
 
+# Create item sprites
+#
+# Conditions:
+# 1. Config textures has just been loaded
+#def desktop_createConfigItemSprites(p):
+#    if (
+#        p.c.recentField != "didLoadConfigTextures"
+#    ):
+#        return
+#
+#    for key in p.c.cfgTree:
+#        if (
+#            cld_startswith(key, "item ")
+#        ):
+#            name = cfg_aux_subsectionName(key)
+#            sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
+#            p.statics[name] = sprite
+#            p.staticSprites.append(sprite)
+#    # Report finish.
+#    p.ctrl.set("didCreateConfigStaticSprites", True)
+
 # Create player sprites
 #
 # Conditions:
@@ -52,7 +73,7 @@ def desktop_createConfigStaticSprites(p):
         if (
             cld_startswith(key, "static ")
         ):
-            name = cfg_aux_staticSpriteName(key)
+            name = cfg_aux_subsectionName(key)
             sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
             p.statics[name] = sprite
             p.staticSprites.append(sprite)
@@ -73,7 +94,7 @@ def desktop_loadConfigTextures(p):
         if (
             cld_startswith(key, "texture ")
         ):
-            name = cfg_aux_textureName(key)
+            name = cfg_aux_subsectionName(key)
             tex = desktop_aux_loadTexture(p.c.cfgDir, p.c.cfgTree[key])
             p.textures[name] = tex
     # Report finish.
