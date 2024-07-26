@@ -9,30 +9,6 @@ def cfg_aux_subsectionName(
     start = quotePos + 2
     return section[start:-1]
 
-# Extract static sprite name from config section
-def cfg_aux_staticSpriteName(
-    sectionName: str
-) -> str:
-    prefix = f"static \""
-    postfix = f"\""
-    start = cld_len(prefix)
-    end = cld_len(postfix)
-    return sectionName[start:-end]
-# Extract texture name from config section
-def cfg_aux_textureName(
-    sectionName: str
-) -> str:
-    prefix = f"texture \""
-    postfix = f"\""
-    start = cld_len(prefix)
-    end = cld_len(postfix)
-    return sectionName[start:-end]
-
-
-
-
-
-
 # Convert config contents to tree: sections -> keys -> values
 def cfg_aux_tree(
     cfgContents: [str]
