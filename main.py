@@ -48,6 +48,7 @@ def process(c):
   desktop_createConfigItemSprites(p)
   desktop_createConfigPlayerSprites(p)
   desktop_createConfigStaticSprites(p)
+  desktop_displayCommentForSelectedItem(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
 ctrl.registerCallback(process)

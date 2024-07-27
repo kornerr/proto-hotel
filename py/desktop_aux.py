@@ -1,5 +1,6 @@
 import arcade
 from cld import *
+from desc_aux import *
 from desktop_Platform import *
 
 # Convert String config value to Bool or Float if possible
@@ -38,7 +39,7 @@ def desktop_aux_createCommentSprite(
     sp.left = float(desc["left"])
     sp.top = float(desc["top"])
     # Visibility.
-    sp.visible = True if desc["visible"] == "true" else False
+    sp.visible = desc_aux_isVisible(desc)
 
     return sp
 
@@ -62,7 +63,7 @@ def desktop_aux_createItemSprite(
     sp.left = float(desc["left"])
     sp.top = float(desc["top"])
     # Visibility.
-    sp.visible = True if desc["visible"] == "true" else False
+    sp.visible = desc_aux_isVisible(desc)
 
     return sp
 
@@ -79,7 +80,7 @@ def desktop_aux_createPlayerSprite(
     sp.left = float(desc["left"])
     sp.top = float(desc["base"])
     # Visibility.
-    sp.visible = True if desc["visible"] == "true" else False
+    sp.visible = desc_aux_isVisible(desc)
 
     return sp
 
@@ -96,9 +97,23 @@ def desktop_aux_createStaticSprite(
     sp.left = float(desc["left"])
     sp.top = float(desc["top"])
     # Visibility.
-    sp.visible = True if desc["visible"] == "true" else False
+    sp.visible = desc_aux_isVisible(desc)
 
     return sp
+
+# Find the first visible item at the specified location
+def desktop_aux_firstVisibleItemAt(
+    p: desktop_Platform,
+    pos: [float]
+):
+    sprites = arcade.get_sprites_at_point(pos, p.itemSprites)
+    if (
+        cld_len(sprites) > 0 and
+        sprites[0].visible
+    ):
+        return sprites[0].guid
+
+    return None
 
 def desktop_aux_loadTexture(
     resDir: str,

@@ -1,6 +1,5 @@
 from cfg_aux import *
 
-
 def test_cfg_aux_subsectionName(
 ) -> str:
     section1 = f"static \"s-floor1\""

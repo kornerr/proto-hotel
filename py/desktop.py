@@ -132,3 +132,24 @@ def desktop_movePlayerInstantly(p):
         return
 
     p.player.left = p.c.didClickMouse[0]
+
+# Display comment
+#
+# Conditions:
+# 1. Mouse has just been clicked
+def desktop_displayCommentForSelectedItem(p):
+    if (
+        p.c.recentField != "didClickMouse"
+    ):
+        return
+    print("ИГР desktop_displayCFSI-01")
+    itemId = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
+    print("ИГР desktop_displayCFSI-02")
+    if (itemId is None):
+        return
+    commId = comment_aux_item(itemId)
+    if (commId is None):
+        return
+    print("ИГР desktop_displayCFSI-03")
+    p.comments[commId].visible = True
+    print("ИГР desktop_displayCFSI-04")

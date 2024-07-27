@@ -8,6 +8,7 @@ sys.path.append(f"{SCRIPT_DIR}/../../cross-language-dialect/lib")
 
 from cfg_aux_test import *
 from cfg_test import *
+from desc_aux_test import *
 
 functions = [
     test_cfg_parseConfigTree,
@@ -15,6 +16,7 @@ functions = [
     test_cfg_aux_tree,
     test_cfg_aux_treeCreateSection,
     test_cfg_aux_treeSetKeyValue,
+    test_desc_aux_isVisible,
 ]
 
 for f in functions:
