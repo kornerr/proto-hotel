@@ -16,7 +16,6 @@ class desktop_Window(arcade.Window):
         self.p.staticSprites.draw()
         self.p.itemSprites.draw()
         self.p.playerSprites.draw()
-        self.p.commentSprites.draw()
 
     def on_mouse_press(self, x, y, button, key_modifiers):
         self.p.ctrl.set("didClickMouse", [x, y])
