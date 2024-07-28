@@ -5,13 +5,13 @@ class ht_Context:
         self.cfgPath = None
         self.cfgTree = {}
         self.didClickMouse = []
-        self.didCreateConfigCommentSprites = False
         self.didCreateConfigItemSprites = False
         self.didCreateConfigPlayerSprites = False
         self.didCreateConfigStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
         self.recentField = "none"
+        self.selectedItem = None
         self.windowAntialiasing = False
         self.windowBackgroundColor = "#000000"
         self.windowHeight: float  = 0

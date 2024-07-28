@@ -18,26 +18,27 @@ def desktop_applyConfigInit(p):
         value = desktop_aux_convertValue(val)
         p.ctrl.set(key, value)
 
-# Create comment sprites
+# TODO: REMOVE because not needed anymore
+## Create comment sprites
+##
+## Conditions:
+## 1. Config textures has just been loaded
+#def desktop_createConfigCommentSprites(p):
+#    if (
+#        p.c.recentField != "didLoadConfigTextures"
+#    ):
+#        return
 #
-# Conditions:
-# 1. Config textures has just been loaded
-def desktop_createConfigCommentSprites(p):
-    if (
-        p.c.recentField != "didLoadConfigTextures"
-    ):
-        return
-
-    for key in p.c.cfgTree:
-        if (
-            cld_startswith(key, "comment ")
-        ):
-            name = cfg_aux_subsectionName(key)
-            sprite = desktop_aux_createCommentSprite(p, name, p.c.cfgTree, key)
-            p.comments[name] = sprite
-            p.commentSprites.append(sprite)
-    # Report finish.
-    p.ctrl.set("didCreateConfigCommentSprites", True)
+#    for key in p.c.cfgTree:
+#        if (
+#            cld_startswith(key, "comment ")
+#        ):
+#            name = cfg_aux_subsectionName(key)
+#            sprite = desktop_aux_createCommentSprite(p, name, p.c.cfgTree, key)
+#            p.comments[name] = sprite
+#            p.commentSprites.append(sprite)
+#    # Report finish.
+#    p.ctrl.set("didCreateConfigCommentSprites", True)
 
 # Create item sprites
 #
@@ -133,23 +134,25 @@ def desktop_movePlayerInstantly(p):
 
     p.player.left = p.c.didClickMouse[0]
 
-# Display comment
+# Print selected item id/name
+#
+# Conditions:
+# 1. Item has just been selected
+def desktop_printSelectedItem(p):
+    if (
+        p.c.recentField != "selectedItem"
+    ):
+        return
+    print(f"ИГР desktop_printSI: '{p.c.selectedItem}'")
+
+# Select visible item on mouse click
 #
 # Conditions:
 # 1. Mouse has just been clicked
-def desktop_displayCommentForSelectedItem(p):
+def desktop_selectItem(p):
     if (
         p.c.recentField != "didClickMouse"
     ):
         return
-    print("ИГР desktop_displayCFSI-01")
-    itemId = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
-    print("ИГР desktop_displayCFSI-02")
-    if (itemId is None):
-        return
-    commId = comment_aux_item(itemId)
-    if (commId is None):
-        return
-    print("ИГР desktop_displayCFSI-03")
-    p.comments[commId].visible = True
-    print("ИГР desktop_displayCFSI-04")
+    item = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
+    p.ctrl.set("selectedItem", item)

@@ -44,13 +44,13 @@ def process(c):
   # Perform context dependent calls of desktop functions.
   # Similar to context functions, but no platform is returned.
   desktop_applyConfigInit(p)
-  desktop_createConfigCommentSprites(p)
   desktop_createConfigItemSprites(p)
   desktop_createConfigPlayerSprites(p)
   desktop_createConfigStaticSprites(p)
-  desktop_displayCommentForSelectedItem(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
+  desktop_printSelectedItem(p)
+  desktop_selectItem(p)
 ctrl.registerCallback(process)
 
 ctrl.set("cfgPath", CFG)
