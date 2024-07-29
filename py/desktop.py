@@ -2,6 +2,7 @@ from cfg_aux import *
 from cld import *
 from desktop_aux import *
 from desktop_Platform import *
+from gm_aux import *
 
 # Pass config init key-value pairs to context controller
 #
@@ -156,3 +157,22 @@ def desktop_selectItem(p):
         return
     item = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
     p.ctrl.set("selectedItem", item)
+
+# Show comment for a locked door
+#
+# Conditions:
+# 1. Door has just been selected
+def desktop_showLockedDoorComment(p):
+    if (
+        p.c.recentField == "selectedItem" and
+        p.c.selectedItem != None and
+        cld_startswith(p.c.selectedItem, "door-")
+    ):
+        comm = gm_aux_lockedDoorComment(p.c.selectedItem)
+
+        if (
+            comm != None
+        ):
+            p.statics[comm].visible = True
+
+        print(f"ИГР desktop_showLDR: '{p.c.selectedItem}'")

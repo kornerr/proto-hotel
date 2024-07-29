@@ -51,6 +51,7 @@ def process(c):
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
   desktop_selectItem(p)
+  desktop_showLockedDoorComment(p)
 ctrl.registerCallback(process)
 
 ctrl.set("cfgPath", CFG)
