@@ -23,3 +23,4 @@ class desktop_Window(arcade.Window):
     def on_update(self, delta):
         self.p.itemSprites.update_animation()
         self.p.playerSprites.update_animation()
+        self.p.timer.update()

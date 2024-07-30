@@ -36,6 +36,8 @@ ctrl.registerCallback(printDbg)
 
 p = desktop_Platform()
 p.ctrl = ctrl
+p.timer = desktop_Timer()
+p.timer.callback = lambda key, value: ctrl.set(key, value)
 
 # Bind platform to context changes.
 def process(c):
@@ -50,8 +52,8 @@ def process(c):
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
+  desktop_resetLockedDoorCommentVisibility(p)
   desktop_selectItem(p)
-  desktop_showLockedDoorComment(p)
 ctrl.registerCallback(process)
 
 ctrl.set("cfgPath", CFG)

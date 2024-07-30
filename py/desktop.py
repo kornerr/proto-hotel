@@ -162,7 +162,8 @@ def desktop_selectItem(p):
 #
 # Conditions:
 # 1. Door has just been selected
-def desktop_showLockedDoorComment(p):
+# 2. Time to hide the comment
+def desktop_resetLockedDoorCommentVisibility(p):
     if (
         p.c.recentField == "selectedItem" and
         p.c.selectedItem != None and
@@ -174,5 +175,12 @@ def desktop_showLockedDoorComment(p):
             comm != None
         ):
             p.statics[comm].visible = True
+            # TODO Use cfg param
+            delay = 3000
+            p.timer.schedule("hideLockedDoorComment", comm, delay)
 
-        print(f"ИГР desktop_showLDR: '{p.c.selectedItem}'")
+    if (
+        p.c.recentField == "hideLockedDoorComment"
+    ):
+        comm = p.c.hideLockedDoorComment
+        p.statics[comm].visible = False

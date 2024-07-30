@@ -10,6 +10,7 @@ class ht_Context:
         self.didCreateConfigStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
+        self.hideLockedDoorComment = None
         self.recentField = "none"
         self.selectedItem = None
         self.windowAntialiasing = False
