@@ -29,7 +29,7 @@ ctrl.registerFunctions([
     cfg_parseConfigTree,
     fs_locateConfigDir,
     fs_readConfig,
-    #gm_selectComment,
+    ht_resetCommentVisibility,
 ])
 
 def printDbg(c):

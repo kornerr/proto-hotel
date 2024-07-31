@@ -11,7 +11,7 @@ class ht_Context:
         self.didCreateConfigStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
-        self.hideSelectedComment = False
+        self.hideComment = None
         self.recentField = "none"
         self.selectedComment = None
         self.selectedItem = None
