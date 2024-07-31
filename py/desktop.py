@@ -2,7 +2,6 @@ from cfg_aux import *
 from cld import *
 from desktop_aux import *
 from desktop_Platform import *
-from gm_aux import *
 
 # Pass config init key-value pairs to context controller
 #
