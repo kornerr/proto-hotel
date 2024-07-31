@@ -4,14 +4,16 @@ class ht_Context:
         self.cfgDir = None
         self.cfgPath = None
         self.cfgTree = {}
+        self.comments = {}
         self.didClickMouse = []
         self.didCreateConfigItemSprites = False
         self.didCreateConfigPlayerSprites = False
         self.didCreateConfigStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
-        self.hideLockedDoorComment = None
+        self.hideSelectedComment = False
         self.recentField = "none"
+        self.selectedComment = None
         self.selectedItem = None
         self.windowAntialiasing = False
         self.windowBackgroundColor = "#000000"

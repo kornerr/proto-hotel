@@ -12,6 +12,7 @@ from desc_aux_test import *
 from gm_aux_test import *
 
 functions = [
+    test_cfg_parseComments,
     test_cfg_parseConfigTree,
     test_cfg_aux_subsectionName,
     test_cfg_aux_tree,

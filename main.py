@@ -25,9 +25,11 @@ from ht_Context import *
 
 ctrl = ctx_Controller(ht_createContext())
 ctrl.registerFunctions([
+    cfg_parseComments,
     cfg_parseConfigTree,
     fs_locateConfigDir,
     fs_readConfig,
+    #gm_selectComment,
 ])
 
 def printDbg(c):
@@ -52,7 +54,9 @@ def process(c):
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
-  desktop_resetLockedDoorCommentVisibility(p)
+
+  #desktop_resetLockedDoorCommentVisibility(p)
+
   desktop_selectItem(p)
 ctrl.registerCallback(process)
 
