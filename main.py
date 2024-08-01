@@ -21,6 +21,7 @@ from fs import *
 from desktop import *
 from desktop_Platform import *
 from desktop_Window import *
+from ht import *
 from ht_Context import *
 
 ctrl = ctx_Controller(ht_createContext())
