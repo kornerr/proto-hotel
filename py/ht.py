@@ -14,7 +14,7 @@ def ht_selectComment(
         c.recentField == "selectedItem" and
         c.selectedItem is not None
     ):
-        c.selectedComment = ht_aux_itemComment(c.selectedItem)
+        c.selectedComment = ht_aux_itemComment(c.comments, c.selectedItem)
         c.recentField = "selectedComment"
         return c
 
