@@ -55,9 +55,7 @@ def process(c):
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
-
-  #desktop_resetLockedDoorCommentVisibility(p)
-
+  desktop_resetCommentVisibility(p)
   desktop_selectItem(p)
 ctrl.registerCallback(process)
 

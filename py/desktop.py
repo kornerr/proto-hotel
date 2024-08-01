@@ -145,6 +145,28 @@ def desktop_printSelectedItem(p):
         return
     print(f"ИГР desktop_printSI: '{p.c.selectedItem}'")
 
+# Reset comment visibility
+#
+# Conditions:
+# 1. Item has just been selected
+# 2. Time to hide the comment
+def desktop_resetCommentVisibility(p):
+    if (
+        p.c.recentField == "selectedComment" and
+        p.c.selectedComment != None
+    ):
+        comm = p.c.comments[p.c.selectedComment]
+        delay = comm[0]
+        name = comm[2]
+        p.statics[name].visible = True
+        p.timer.schedule("hideStaticComment", name, delay)
+
+    if (
+        p.c.recentField == "hideStaticComment"
+    ):
+        name = p.c.hideStaticComment
+        p.statics[name].visible = False
+
 # Select visible item on mouse click
 #
 # Conditions:
@@ -156,30 +178,3 @@ def desktop_selectItem(p):
         return
     item = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
     p.ctrl.set("selectedItem", item)
-
-# Show comment for a locked door
-#
-# Conditions:
-# 1. Door has just been selected
-# 2. Time to hide the comment
-def desktop_resetLockedDoorCommentVisibility(p):
-    if (
-        p.c.recentField == "selectedItem" and
-        p.c.selectedItem != None and
-        cld_startswith(p.c.selectedItem, "door-")
-    ):
-        comm = gm_aux_lockedDoorComment(p.c.selectedItem)
-
-        if (
-            comm != None
-        ):
-            p.statics[comm].visible = True
-            # TODO Use cfg param
-            delay = 3000
-            p.timer.schedule("hideLockedDoorComment", comm, delay)
-
-    if (
-        p.c.recentField == "hideLockedDoorComment"
-    ):
-        comm = p.c.hideLockedDoorComment
-        p.statics[comm].visible = False
