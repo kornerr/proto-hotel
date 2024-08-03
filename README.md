@@ -4,14 +4,14 @@
 
 1. Перейти в проект
 
-    * $ `cd proto-hotel`
+    * `cd proto-hotel`
 
 1. Загрузить обновления
 
-    * $ `git checkout -f`
-    * $ `git clean -fd`
-    * $ `git pull`
+    * `git checkout -f`
+    * `git clean -fd`
+    * `git pull`
 
 1. Запустить проект 
 
-    * $ `./run.w`
+    * `./run.w`
