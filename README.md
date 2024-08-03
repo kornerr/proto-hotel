@@ -1,39 +1,17 @@
-# 2024-07-20 Инструкция для Приёмки №1
-
-1. Установить Python 3.11.2
-
-    * https://www.python.org/downloads/release/python-3112/
-    * выбрать Windows installer (64-bit)
-    * выбрать Add python.exe to PATH
-
-1. Установить Git 2.45.2
-
-    * https://git-scm.com/download/win/
-    * выбрать Add a Git Bash Profile to Windows Terminal
-    * выбрать Enable symbolic links
+# 2024-08-03 Инструкция для Приёмки №2
 
 1. Запустить Git Bash
 
-1. Проверить работу Python и Git
+1. Перейти в проект
 
-    * $ `python --version`
-    * $ `git --version`
+    * $ `cd proto-hotel`
 
-5. Склонировать прототип
+1. Загрузить обновления
 
-    * $ `git clone https://github.com/kornerr/proto-hotel`
+    * $ `git checkout -f`
+    * $ `git clean -fd`
+    * $ `git pull`
 
-6. Установить зависимости проекта
-
-    * $ `./setup.w`
-
-7. Запустить проект 
+1. Запустить проект 
 
     * $ `./run.w`
-
-8. В случае пробле с питоном
-
-    * обновить файл `python`
-        * прописать путь до питона напрямую
-    * обновить файлы `setup.w` и `run.w`
-        * заменить `python` на `./python`
