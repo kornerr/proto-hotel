@@ -18,28 +18,6 @@ def desktop_applyConfigInit(p):
         value = desktop_aux_convertValue(val)
         p.ctrl.set(key, value)
 
-# TODO: REMOVE because not needed anymore
-## Create comment sprites
-##
-## Conditions:
-## 1. Config textures has just been loaded
-#def desktop_createConfigCommentSprites(p):
-#    if (
-#        p.c.recentField != "didLoadConfigTextures"
-#    ):
-#        return
-#
-#    for key in p.c.cfgTree:
-#        if (
-#            cld_startswith(key, "comment ")
-#        ):
-#            name = cfg_aux_subsectionName(key)
-#            sprite = desktop_aux_createCommentSprite(p, name, p.c.cfgTree, key)
-#            p.comments[name] = sprite
-#            p.commentSprites.append(sprite)
-#    # Report finish.
-#    p.ctrl.set("didCreateConfigCommentSprites", True)
-
 # Create item sprites
 #
 # Conditions:
