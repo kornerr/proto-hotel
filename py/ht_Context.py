@@ -13,6 +13,9 @@ class ht_Context:
         self.didLoadConfigTextures = False
         self.hideStaticComment = None
         self.recentField = "none"
+        self.scene = None
+        self.sceneCfgContents = {}
+        self.scenes = {}
         self.selectedComment = None
         self.selectedItem = None
         self.windowAntialiasing = False

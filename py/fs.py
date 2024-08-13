@@ -38,3 +38,26 @@ def fs_readConfig(
 
     c.recentField = "none"
     return c
+
+# Read scene contents for each scene
+#
+# Conditions:
+# 1. Scenes are now known
+@cld_by_value
+def fs_readSceneConfigs(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "scenes"
+    ):
+        d = {}
+        for name in c.scenes:
+            file = c.scenes[name]
+            path = c.cfgDir + "/" + file
+            d[name] = fs_aux_readFile(path)
+        c.sceneCfgContents = d
+        c.recentField = "sceneCfgContents"
+        return c
+
+    c.recentField = "none"
+    return c

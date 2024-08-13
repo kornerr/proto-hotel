@@ -28,8 +28,10 @@ ctrl = ctx_Controller(ht_createContext())
 ctrl.registerFunctions([
     cfg_parseComments,
     cfg_parseConfigTree,
+    cfg_parseScenes,
     fs_locateConfigDir,
     fs_readConfig,
+    fs_readSceneConfigs,
     ht_selectComment,
 ])
 
@@ -49,13 +51,14 @@ def process(c):
   # Perform context dependent calls of desktop functions.
   # Similar to context functions, but no platform is returned.
   desktop_applyConfigInit(p)
-  desktop_createConfigItemSprites(p)
-  desktop_createConfigPlayerSprites(p)
-  desktop_createConfigStaticSprites(p)
+  #desktop_createConfigItemSprites(p)
+  #desktop_createConfigPlayerSprites(p)
+  #desktop_createConfigStaticSprites(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
   desktop_resetCommentVisibility(p)
+  desktop_resetSceneStaticSprites(p)
   desktop_selectItem(p)
 ctrl.registerCallback(process)
 

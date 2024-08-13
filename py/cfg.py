@@ -50,3 +50,29 @@ def cfg_parseConfigTree(
 
     c.recentField = "none"
     return c
+
+# Construct scene -> file from config tree
+#
+# Conditions:
+# 1. Config tree has just become available
+@cld_by_value
+def cfg_parseScenes(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField != "cfgTree"
+    ):
+        c.recentField = "none"
+        return c
+
+    scns = {}
+    for key in c.cfgTree:
+        if (
+            cld_startswith(key, "scene ")
+        ):
+            name = cfg_aux_subsectionName(key)
+            item = c.cfgTree[key]
+            scns[name] = item["file"]
+    c.scenes = scns
+    c.recentField = "scenes"
+    return c

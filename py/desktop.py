@@ -21,7 +21,7 @@ def desktop_applyConfigInit(p):
 # Create item sprites
 #
 # Conditions:
-# 1. Config textures has just been loaded
+# 1. Config textures have been loaded
 def desktop_createConfigItemSprites(p):
     if (
         p.c.recentField != "didLoadConfigTextures"
@@ -42,7 +42,7 @@ def desktop_createConfigItemSprites(p):
 # Create player sprites
 #
 # Conditions:
-# 1. Config textures has just been loaded
+# 1. Config textures have been loaded
 def desktop_createConfigPlayerSprites(p):
     if (
         p.c.recentField != "didLoadConfigTextures"
@@ -62,7 +62,7 @@ def desktop_createConfigPlayerSprites(p):
 # Create static sprites
 #
 # Conditions:
-# 1. Config textures has just been loaded
+# 1. Config textures have been loaded
 def desktop_createConfigStaticSprites(p):
     if (
         p.c.recentField != "didLoadConfigTextures"
@@ -144,6 +144,39 @@ def desktop_resetCommentVisibility(p):
     ):
         name = p.c.hideStaticComment
         p.statics[name].visible = False
+
+# Create static sprites for activated scene and remove old ones
+#
+# Conditions:
+# 1. Config textures have been loaded or scenes were specified or scene was activated
+def desktop_resetSceneStaticSprites(p):
+    if (
+        (
+            p.c.recentField == "didLoadConfigTextures" or
+            p.c.recentField == "scene" or
+            p.c.recentField == "sceneCfgContents" or
+            p.c.recentField == "scenes" 
+        ) and
+        p.c.scene is not None and
+        cld_len(p.c.sceneCfgContents) > 0 and
+        cld_len(p.c.scenes) > 0 and
+        p.c.didLoadConfigTextures == True
+    ):
+        pass
+    else:
+        return
+
+    print(f"ИГР desktop_resetSSS")
+#    for key in p.c.cfgTree:
+#        if (
+#            cld_startswith(key, "static ")
+#        ):
+#            name = cfg_aux_subsectionName(key)
+#            sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
+#            p.statics[name] = sprite
+#            p.staticSprites.append(sprite)
+#    # Report finish.
+#    p.ctrl.set("didCreateConfigStaticSprites", True)
 
 # Select visible item on mouse click
 #

@@ -39,3 +39,20 @@ def test_cfg_parseConfigTree(
     ):
         return "OK: cfg_parseConfigTree"
     return "ERR: cfg_parseConfigTree"
+
+def test_cfg_parseScenes(
+) -> str:
+    c = ht_createContext()
+    c.cfgTree = {
+        "scene \"floor-1\"": {
+            "file": "scn/floor-1.config"
+        }
+    }
+    c.recentField = "cfgTree"
+    c = cfg_parseScenes(c)
+    if (
+        cld_len(c.scenes) == 1 and
+        c.scenes["floor-1"] == "scn/floor-1.config"
+    ):
+        return "OK: cfg_parseScenes"
+    return "ERR: cfg_parseScenes"
