@@ -154,11 +154,11 @@ def desktop_resetSceneStaticSprites(p):
         (
             p.c.recentField == "didLoadConfigTextures" or
             p.c.recentField == "scene" or
-            p.c.recentField == "sceneCfgContents" or
+            p.c.recentField == "sceneCfgTrees" or
             p.c.recentField == "scenes" 
         ) and
         p.c.scene is not None and
-        cld_len(p.c.sceneCfgContents) > 0 and
+        cld_len(p.c.sceneCfgTrees) > 0 and
         cld_len(p.c.scenes) > 0 and
         p.c.didLoadConfigTextures == True
     ):
@@ -168,20 +168,22 @@ def desktop_resetSceneStaticSprites(p):
 
     print(f"ИГР desktop_resetSSS")
     #  Remove previous static sprites.
-    p.statics = []
+    p.statics.clear()
     p.staticSprites.clear()
 
     # Create new ones.
-#    for key in p.c.cfgTree:
-#        if (
-#            cld_startswith(key, "static ")
-#        ):
-#            name = cfg_aux_subsectionName(key)
-#            sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
-#            p.statics[name] = sprite
-#            p.staticSprites.append(sprite)
-#    # Report finish.
-#    p.ctrl.set("didCreateConfigStaticSprites", True)
+    tree = p.c.sceneCfgTrees[p.c.scene]
+    for key in tree:
+        if (
+            cld_startswith(key, "static ")
+        ):
+            name = cfg_aux_subsectionName(key)
+            sprite = desktop_aux_createStaticSprite(p, name, tree[key])
+            p.statics[name] = sprite
+            p.staticSprites.append(sprite)
+
+    # Report finish.
+    p.ctrl.set("didCreateSceneStaticSprites", True)
 
 # Select visible item on mouse click
 #
