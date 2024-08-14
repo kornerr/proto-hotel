@@ -145,7 +145,6 @@ def desktop_resetSceneStaticSprites(p):
     else:
         return
 
-    print(f"ИГР desktop_resetSSS")
     #  Remove previous static sprites.
     p.statics.clear()
     p.staticSprites.clear()
