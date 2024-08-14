@@ -51,6 +51,28 @@ def cfg_parseConfigTree(
     c.recentField = "none"
     return c
 
+# Construct name -> key -> value trees from scene config contents
+#
+# Conditions:
+# 1. Scene config contents have just become available
+@cld_by_value
+def cfg_parseSceneConfigTrees(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "sceneCfgContents"
+    ):
+        trees = {}
+        for sceneName in c.sceneCfgContents:
+            contents = c.sceneCfgContents[sceneName]
+            trees[sceneName] = cfg_aux_tree(contents)
+        c.sceneCfgTrees = trees
+        c.recentField = "sceneCfgTrees"
+        return c
+
+    c.recentField = "none"
+    return c
+
 # Construct scene -> file from config tree
 #
 # Conditions:

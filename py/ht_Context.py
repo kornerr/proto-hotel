@@ -15,6 +15,7 @@ class ht_Context:
         self.recentField = "none"
         self.scene = None
         self.sceneCfgContents = {}
+        self.sceneCfgTrees = {}
         self.scenes = {}
         self.selectedComment = None
         self.selectedItem = None

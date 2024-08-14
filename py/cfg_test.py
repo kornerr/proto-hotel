@@ -40,6 +40,29 @@ def test_cfg_parseConfigTree(
         return "OK: cfg_parseConfigTree"
     return "ERR: cfg_parseConfigTree"
 
+def test_cfg_parseSceneConfigTrees(
+) -> str:
+    c = ht_createContext()
+    c.sceneCfgContents = {
+        "scn1": [
+            "[abc]",
+            "width = 100",
+            "wrongSep=another",
+            "[def]",
+            "anotherWrongSep -> whatever",
+            "title = yo",
+            "subtitle = whoa",
+        ],
+    }
+    c.recentField = "sceneCfgContents"
+    c = cfg_parseSceneConfigTrees(c)
+    if (
+        cld_len(c.sceneCfgTrees) == 1 and
+        cld_len(c.sceneCfgTrees["scn1"]) == 2
+    ):
+        return "OK: cfg_parseSceneConfigTrees"
+    return "ERR: cfg_parseSceneConfigTrees"
+
 def test_cfg_parseScenes(
 ) -> str:
     c = ht_createContext()

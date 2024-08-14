@@ -167,6 +167,11 @@ def desktop_resetSceneStaticSprites(p):
         return
 
     print(f"ИГР desktop_resetSSS")
+    #  Remove previous static sprites.
+    p.statics = []
+    p.staticSprites.clear()
+
+    # Create new ones.
 #    for key in p.c.cfgTree:
 #        if (
 #            cld_startswith(key, "static ")
