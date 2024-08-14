@@ -6,9 +6,9 @@ class ht_Context:
         self.cfgTree = {}
         self.comments = {}
         self.didClickMouse = []
-        self.didCreateConfigItemSprites = False
         self.didCreateConfigPlayerSprites = False
-        self.didCreateConfigStaticSprites = False
+        self.didResetSceneItemSprites = False
+        self.didResetSceneStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
         self.hideStaticComment = None
