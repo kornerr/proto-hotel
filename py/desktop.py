@@ -59,27 +59,6 @@ def desktop_createConfigPlayerSprites(p):
     # Report finish.
     p.ctrl.set("didCreateConfigPlayerSprites", True)
 
-# Create static sprites
-#
-# Conditions:
-# 1. Config textures have been loaded
-def desktop_createConfigStaticSprites(p):
-    if (
-        p.c.recentField != "didLoadConfigTextures"
-    ):
-        return
-
-    for key in p.c.cfgTree:
-        if (
-            cld_startswith(key, "static ")
-        ):
-            name = cfg_aux_subsectionName(key)
-            sprite = desktop_aux_createStaticSprite(p, name, p.c.cfgTree[key])
-            p.statics[name] = sprite
-            p.staticSprites.append(sprite)
-    # Report finish.
-    p.ctrl.set("didCreateConfigStaticSprites", True)
-
 # Load textures
 #
 # Conditions:

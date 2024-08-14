@@ -54,7 +54,6 @@ def process(c):
   desktop_applyConfigInit(p)
   #desktop_createConfigItemSprites(p)
   #desktop_createConfigPlayerSprites(p)
-  #desktop_createConfigStaticSprites(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_printSelectedItem(p)
