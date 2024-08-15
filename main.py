@@ -34,6 +34,7 @@ ctrl.registerFunctions([
     fs_locateConfigDir,
     fs_readConfig,
     fs_readSceneConfigs,
+    ht_gotoScene,
     ht_selectComment,
 ])
 

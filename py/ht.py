@@ -2,6 +2,29 @@ from cld import *
 from ht_aux import *
 from ht_Context import *
 
+# Go to scene
+#
+# Conditions:
+# 1. Item with an associated goto has just been selected
+@cld_by_value
+def ht_gotoScene(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "selectedItem" and
+        c.selectedItem is not None and
+        cld_len(c.goto) > 0 and
+        ht_aux_gotoSceneAssign(c.scene, c.goto, c.selectedItem)
+    ):
+        // Already assigned in ht_aux_gotoScene
+        //c.scene = scene
+        print(f"ИГР scene: '{c.scene}'")
+        c.recentField = "scene"
+        return c
+
+    c.recentField = "none"
+    return c
+
 # Select comment (i.e., make it visible)
 #
 # Conditions:
