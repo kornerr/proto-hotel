@@ -16,6 +16,7 @@ functions = [
     test_cfg_parseConfigTree,
     test_cfg_parseSceneConfigTrees,
     test_cfg_parseSceneComments,
+    test_cfg_parseSceneGoto,
     test_cfg_parseScenes,
     test_cfg_aux_subsectionName,
     test_cfg_aux_tree,

@@ -43,6 +43,27 @@ def test_cfg_parseSceneComments(
         return "OK: cfg_parseSceneComments"
     return "ERR: cfg_parseSceneComments"
 
+def test_cfg_parseSceneGoto(
+) -> str:
+    c = ht_createContext()
+    c.scene = "scn1"
+    c.sceneCfgTrees = {
+        "scn1": {
+            "goto \"floor\"": {
+                "item": "door",
+                "scene": "basement"
+            }
+        }
+    }
+    c.recentField = "sceneCfgTrees"
+    c = cfg_parseSceneGoto(c)
+    if (
+        cld_len(c.goto) == 1 and
+        c.goto["floor"][0] == "door"
+    ):
+        return "OK: cfg_parseSceneGoto"
+    return "ERR: cfg_parseSceneGoto"
+
 def test_cfg_parseSceneConfigTrees(
 ) -> str:
     c = ht_createContext()

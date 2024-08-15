@@ -11,6 +11,7 @@ class ht_Context:
         self.didResetSceneStaticSprites = False
         self.didLaunch = False
         self.didLoadConfigTextures = False
+        self.goto = {}
         self.hideStaticComment = None
         self.recentField = "none"
         self.scene = None

@@ -76,6 +76,38 @@ def cfg_parseSceneConfigTrees(
     c.recentField = "none"
     return c
 
+# Construct goto -> [item, scene] from scene config tree
+#
+# Conditions:
+# 1. Scene config tree has just become available
+@cld_by_value
+def cfg_parseSceneGoto(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "sceneCfgTrees"
+    ):
+        pass
+    else:
+        c.recentField = "none"
+        return c
+
+    tree = c.sceneCfgTrees[c.scene]
+    goto = {}
+    for key in tree:
+        if (
+            cld_startswith(key, "goto ")
+        ):
+            name = cfg_aux_subsectionName(key)
+            item = tree[key]
+            goto[name] = [
+                item["item"],
+                item["scene"]
+            ]
+    c.goto = goto
+    c.recentField = "goto"
+    return c
+
 # Construct scene -> file from config tree
 #
 # Conditions:
