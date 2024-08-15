@@ -79,13 +79,14 @@ def cfg_parseSceneConfigTrees(
 # Construct goto -> [item, scene] from scene config tree
 #
 # Conditions:
-# 1. Scene config tree has just become available
+# 1. Scene config tree has just become available or scene changed
 @cld_by_value
 def cfg_parseSceneGoto(
     c: ht_Context
 ) -> ht_Context:
     if (
-        c.recentField == "sceneCfgTrees"
+        c.recentField == "sceneCfgTrees" or
+        c.recentField == "scene"
     ):
         pass
     else:

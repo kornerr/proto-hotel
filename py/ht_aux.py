@@ -1,19 +1,18 @@
 from cld import *
 
-# Find scene associated with the item and assign it to the first parameter
-def ht_aux_gotoSceneAssign(
-    scene: str,
+# Find scene associated with the item
+def ht_aux_gotoScene(
     goto: dict[str, tuple[str, str]],
     item: str
-) -> bool:
+) -> str:
+    print(f"ИГР ht_aux_gotoS goto: '{goto}'")
     for name in goto:
         d = goto[name]
         if (
             item == d[0] 
         ):
-            scene = d[1]
-            return True
-    return False
+            return d[1]
+    return None
 
 # Find comment associated with the item
 def ht_aux_itemComment(

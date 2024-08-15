@@ -13,14 +13,15 @@ def ht_gotoScene(
     if (
         c.recentField == "selectedItem" and
         c.selectedItem is not None and
-        cld_len(c.goto) > 0 and
-        ht_aux_gotoSceneAssign(c.scene, c.goto, c.selectedItem)
+        cld_len(c.goto) > 0
     ):
-        // Already assigned in ht_aux_gotoScene
-        //c.scene = scene
-        print(f"ИГР scene: '{c.scene}'")
-        c.recentField = "scene"
-        return c
+        scene = ht_aux_gotoScene(c.goto, c.selectedItem)
+        print(f"ИГР scene-01: '{scene}'")
+        if (scene is not None):
+            c.scene = scene
+            print(f"ИГР scene-02: '{c.scene}'")
+            c.recentField = "scene"
+            return c
 
     c.recentField = "none"
     return c
