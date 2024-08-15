@@ -26,8 +26,8 @@ from ht_Context import *
 
 ctrl = ctx_Controller(ht_createContext())
 ctrl.registerFunctions([
-    cfg_parseComments,
     cfg_parseConfigTree,
+    cfg_parseSceneComments,
     cfg_parseSceneConfigTrees,
     cfg_parseScenes,
     fs_locateConfigDir,

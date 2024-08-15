@@ -3,36 +3,6 @@ from cfg_aux import *
 from cld import *
 from ht_Context import *
 
-# Construct comment -> [delay, item, static] from config tree
-#
-# Conditions:
-# 1. Config tree has just become available
-@cld_by_value
-def cfg_parseComments(
-    c: ht_Context
-) -> ht_Context:
-    if (
-        c.recentField != "cfgTree"
-    ):
-        c.recentField = "none"
-        return c
-
-    comms = {}
-    for key in c.cfgTree:
-        if (
-            cld_startswith(key, "comment ")
-        ):
-            name = cfg_aux_subsectionName(key)
-            item = c.cfgTree[key]
-            comms[name] = [
-                float(item["delay"]),
-                item["item"],
-                item["static"]
-            ]
-    c.comments = comms
-    c.recentField = "comments"
-    return c
-
 # Construct section -> key -> value tree from config contents
 #
 # Conditions:
@@ -49,6 +19,39 @@ def cfg_parseConfigTree(
         return c
 
     c.recentField = "none"
+    return c
+
+# Construct comment -> [delay, item, static] from scene config tree
+#
+# Conditions:
+# 1. Scene config tree has just become available
+@cld_by_value
+def cfg_parseSceneComments(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "sceneCfgTrees"
+    ):
+        pass
+    else:
+        c.recentField = "none"
+        return c
+
+    tree = c.sceneCfgTrees[c.scene]
+    comms = {}
+    for key in tree:
+        if (
+            cld_startswith(key, "comment ")
+        ):
+            name = cfg_aux_subsectionName(key)
+            item = tree[key]
+            comms[name] = [
+                float(item["delay"]),
+                item["item"],
+                item["static"]
+            ]
+    c.comments = comms
+    c.recentField = "comments"
     return c
 
 # Construct name -> key -> value trees from scene config contents
