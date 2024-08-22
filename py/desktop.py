@@ -49,17 +49,6 @@ def desktop_movePlayerInstantly(p):
         p.player.left = p.c.playerPosition[0]
         p.player.top = p.c.playerPosition[1]
 
-# Print selected item id/name
-#
-# Conditions:
-# 1. Item has just been selected
-def desktop_printSelectedItem(p):
-    if (
-        p.c.recentField != "selectedItem"
-    ):
-        return
-    print(f"ИГР desktop_printSI: '{p.c.selectedItem}'")
-
 # Reset comment visibility
 #
 # Conditions:

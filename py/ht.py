@@ -2,36 +2,13 @@ from cld import *
 from ht_aux import *
 from ht_Context import *
 
-# Go to scene
-#
-# Conditions:
-# 1. Item with an associated goto has just been selected
-@cld_by_value
-def ht_gotoScene(
-    c: ht_Context
-) -> ht_Context:
-    if (
-        c.recentField == "selectedItem" and
-        c.selectedItem is not None and
-        cld_len(c.goto) > 0
-    ):
-        scene = ht_aux_gotoScene(c.goto, c.selectedItem)
-        print(f"ИГР scene-01: '{scene}'")
-        if (scene is not None):
-            c.scene = scene
-            print(f"ИГР scene-02: '{c.scene}'")
-            c.recentField = "scene"
-            return c
-
-    c.recentField = "none"
-    return c
-
 # Reset player position
 #
 # Conditions:
 # 1. Player sprites have been reset due to scene loading for the first time
-# 2. Mouse has been clicked
-# 3. Goto has been executed
+# 2. Player sprites have been reset due to scene loading for the second time and on
+# 3. Mouse has been clicked
+# 4. Goto has been selected
 @cld_by_value
 def ht_resetPlayerPosition(
     c: ht_Context
@@ -48,12 +25,52 @@ def ht_resetPlayerPosition(
         return c
 
     if (
+        c.recentField == "didResetScenePlayerSprites" and
+        cld_len(c.playerPosition) == 2
+    ):
+        c.recentField = "playerPosition"
+        return c
+
+    if (
         c.recentField == "didClickMouse"
     ):
         left = c.didClickMouse[0]
         top = c.playerPosition[1]
         c.playerPosition = [left, top]
         c.recentField = "playerPosition"
+        return c
+
+    if (
+        c.recentField == "selectedGoto" and
+        c.selectedGoto is not None and
+        c.goto[c.selectedGoto][1] is not None and
+        c.goto[c.selectedGoto][2] is not None
+    ):
+        gt = c.goto[c.selectedGoto]
+        top = float(gt[1])
+        left = float(gt[2])
+        c.playerPosition = [left, top]
+        c.recentField = "playerPosition"
+        return c
+
+    c.recentField = "none"
+    return c
+
+# Go to scene
+#
+# Conditions:
+# 1. Goto has been selected
+@cld_by_value
+def ht_resetScene(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "selectedGoto" and
+        c.selectedGoto is not None and
+        cld_len(c.goto) > 0
+    ):
+        c.scene = c.goto[c.selectedGoto][3]
+        c.recentField = "scene"
         return c
 
     c.recentField = "none"

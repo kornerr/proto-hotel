@@ -106,7 +106,8 @@ def cfg_parseSceneGoto(
             item = tree[key]
             goto[name] = [
                 item["item"],
-                item["playerLeft"],
+                item["playerBase"] if "playerBase" in item else None,
+                item["playerLeft"] if "playerLeft" in item else None,
                 item["scene"]
             ]
     c.goto = goto

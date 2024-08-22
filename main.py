@@ -34,8 +34,8 @@ ctrl.registerFunctions([
     fs_locateConfigDir,
     fs_readConfig,
     fs_readSceneConfigs,
-    ht_gotoScene,
     ht_resetPlayerPosition,
+    ht_resetScene,
     ht_resetSelectedGoto,
     ht_selectComment,
 ])
@@ -58,7 +58,6 @@ def process(c):
   desktop_applyConfigInit(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
-  desktop_printSelectedItem(p)
   desktop_resetCommentVisibility(p)
   desktop_resetSceneItemSprites(p)
   desktop_resetScenePlayerSprites(p)
