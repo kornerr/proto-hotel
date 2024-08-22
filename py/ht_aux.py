@@ -11,7 +11,7 @@ def ht_aux_gotoScene(
         if (
             item == d[0] 
         ):
-            return d[1]
+            return d[2]
     return None
 
 # Find comment associated with the item
@@ -21,6 +21,19 @@ def ht_aux_itemComment(
 ) -> str:
     for name in comments:
         d = comments[name]
+        if (
+            item == d[1] 
+        ):
+            return name
+    return None
+
+# Find goto associated with the item
+def ht_aux_itemGoto(
+    goto: dict[str, tuple[str, float, str]],
+    item: str
+) -> str:
+    for name in goto:
+        d = goto[name]
         if (
             item == d[1] 
         ):

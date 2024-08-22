@@ -41,14 +41,13 @@ def desktop_loadConfigTextures(p):
 # Move player instantly along X axis
 #
 # Conditions:
-# 1. Mouse has just been clicked
+# 1. Player position changed
 def desktop_movePlayerInstantly(p):
     if (
-        p.c.recentField != "didClickMouse"
+        p.c.recentField == "playerPosition"
     ):
-        return
-
-    p.player.left = p.c.didClickMouse[0]
+        p.player.left = p.c.playerPosition[0]
+        p.player.top = p.c.playerPosition[1]
 
 # Print selected item id/name
 #

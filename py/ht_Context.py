@@ -13,12 +13,14 @@ class ht_Context:
         self.didLoadConfigTextures = False
         self.goto = {}
         self.hideStaticComment = None
+        self.playerPosition = []
         self.recentField = "none"
         self.scene = None
         self.sceneCfgContents = {}
         self.sceneCfgTrees = {}
         self.scenes = {}
         self.selectedComment = None
+        self.selectedGoto = None
         self.selectedItem = None
         self.windowAntialiasing = False
         self.windowBackgroundColor = "#000000"

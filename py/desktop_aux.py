@@ -76,11 +76,9 @@ def desktop_aux_createPlayerSprite(
     sp.guid = name
     texName = desc["texture"]
     sp.texture = p.textures[texName]
-    # Position.
-    sp.left = float(desc["left"])
-    sp.top = float(desc["base"])
     # Visibility.
     sp.visible = desc_aux_isVisible(desc)
+    # Position is set by ht_resetPlayerPosition.
 
     return sp
 
