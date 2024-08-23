@@ -28,7 +28,7 @@ def ht_delayScene(
 # 1. Player sprites have been reset due to scene loading for the first time
 # 2. Player sprites have been reset due to scene loading for the second time and on
 # 3. Mouse has been clicked
-# 4. Goto has been selected
+# 4. Delayed scene has been activated
 @cld_by_value
 def ht_resetPlayerPosition(
     c: ht_Context
@@ -44,12 +44,12 @@ def ht_resetPlayerPosition(
         c.recentField = "playerPosition"
         return c
 
-    if (
-        c.recentField == "didResetScenePlayerSprites" and
-        cld_len(c.playerPosition) == 2
-    ):
-        c.recentField = "playerPosition"
-        return c
+#    if (
+#        c.recentField == "didResetScenePlayerSprites" and
+#        cld_len(c.playerPosition) == 2
+#    ):
+#        c.recentField = "playerPosition"
+#        return c
 
     if (
         c.recentField == "didClickMouse"
