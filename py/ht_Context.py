@@ -5,6 +5,7 @@ class ht_Context:
         self.cfgPath = None
         self.cfgTree = {}
         self.comments = {}
+        self.delayScene = None
         self.didClickMouse = []
         self.didCreateConfigPlayerSprites = False
         self.didResetSceneItemSprites = False

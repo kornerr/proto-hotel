@@ -71,6 +71,20 @@ def desktop_resetCommentVisibility(p):
         name = p.c.hideStaticComment
         p.statics[name].visible = False
 
+# Reset scene
+#
+# Conditions:
+# 1. Scene has been scheduled for goto
+def desktop_resetSceneAfterDelay(p):
+    if (
+        p.c.recentField == "delayScene" and
+        p.c.selectedGoto is not None
+    ):
+        goto = p.c.goto[p.c.selectedGoto]
+        delay = float(goto[0])
+        print("ИГР desktop_resetSAD value/delay: '{p.c.delayScene}'/'{p.c.delay}'")
+        p.timer.schedule("scene", p.c.delayScene, delay)
+
 # Create item sprites for activated scene and remove old ones
 #
 # Conditions:

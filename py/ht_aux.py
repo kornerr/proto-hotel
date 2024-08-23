@@ -21,7 +21,7 @@ def ht_aux_itemGoto(
     for name in goto:
         d = goto[name]
         if (
-            item == d[0] 
+            item == d[1] 
         ):
             return name
     return None

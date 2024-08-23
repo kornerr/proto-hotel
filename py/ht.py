@@ -2,6 +2,26 @@ from cld import *
 from ht_aux import *
 from ht_Context import *
 
+# Go to scene with a delay
+#
+# Conditions:
+# 1. Goto has been selected
+@cld_by_value
+def ht_delayScene(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "selectedGoto" and
+        c.selectedGoto is not None and
+        cld_len(c.goto) > 0
+    ):
+        c.delayScene = c.goto[c.selectedGoto][4]
+        c.recentField = "delayScene"
+        return c
+
+    c.recentField = "none"
+    return c
+
 # Reset player position
 #
 # Conditions:
@@ -41,14 +61,14 @@ def ht_resetPlayerPosition(
         return c
 
     if (
-        c.recentField == "selectedGoto" and
+        c.recentField == "scene" and
         c.selectedGoto is not None and
-        c.goto[c.selectedGoto][1] is not None and
-        c.goto[c.selectedGoto][2] is not None
+        c.goto[c.selectedGoto][2] is not None and
+        c.goto[c.selectedGoto][3] is not None
     ):
         gt = c.goto[c.selectedGoto]
-        top = float(gt[1])
-        left = float(gt[2])
+        top = float(gt[2])
+        left = float(gt[3])
         c.playerPosition = [left, top]
         c.recentField = "playerPosition"
         return c
@@ -56,25 +76,25 @@ def ht_resetPlayerPosition(
     c.recentField = "none"
     return c
 
-# Go to scene
+## Go to scene after delay has passed
+##
+## Conditions:
+## 1. Delay has passed after goto selection
+#@cld_by_value
+#def ht_resetScene(
+#    c: ht_Context
+#) -> ht_Context:
+#    if (
+#        c.recentField == "selectedGoto" and
+#        c.selectedGoto is not None and
+#        cld_len(c.goto) > 0
+#    ):
+#        c.scene = c.goto[c.selectedGoto][3]
+#        c.recentField = "scene"
+#        return c
 #
-# Conditions:
-# 1. Goto has been selected
-@cld_by_value
-def ht_resetScene(
-    c: ht_Context
-) -> ht_Context:
-    if (
-        c.recentField == "selectedGoto" and
-        c.selectedGoto is not None and
-        cld_len(c.goto) > 0
-    ):
-        c.scene = c.goto[c.selectedGoto][3]
-        c.recentField = "scene"
-        return c
-
-    c.recentField = "none"
-    return c
+#    c.recentField = "none"
+#    return c
 
 # Select goto
 #
