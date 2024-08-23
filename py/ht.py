@@ -76,26 +76,6 @@ def ht_resetPlayerPosition(
     c.recentField = "none"
     return c
 
-## Go to scene after delay has passed
-##
-## Conditions:
-## 1. Delay has passed after goto selection
-#@cld_by_value
-#def ht_resetScene(
-#    c: ht_Context
-#) -> ht_Context:
-#    if (
-#        c.recentField == "selectedGoto" and
-#        c.selectedGoto is not None and
-#        cld_len(c.goto) > 0
-#    ):
-#        c.scene = c.goto[c.selectedGoto][3]
-#        c.recentField = "scene"
-#        return c
-#
-#    c.recentField = "none"
-#    return c
-
 # Select goto
 #
 # Conditions:
