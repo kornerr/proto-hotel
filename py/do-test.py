@@ -26,6 +26,9 @@ functions = [
     test_ht_aux_itemComment,
     test_ht_aux_itemGoto,
     test_ht_delayScene,
+    test_ht_resetPlayerPosition_click,
+    test_ht_resetPlayerPosition_initial,
+    test_ht_resetPlayerPosition_scene,
     test_ht_resetSelectedGoto,
     test_ht_selectComment,
 ]

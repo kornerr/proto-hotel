@@ -16,6 +16,60 @@ def test_ht_delayScene(
         return "OK: ht_delayScene"
     return "ERR: ht_delayScene"
 
+def test_ht_resetPlayerPosition_click(
+) -> str:
+    c = ht_createContext()
+    c.playerPosition = [20, 30]
+    c.didClickMouse = [100, 150]
+    c.recentField = "didClickMouse"
+    c = ht_resetPlayerPosition(c)
+    if (
+        c.playerPosition[0] == 100 and
+        c.playerPosition[1] == 30
+    ):
+        return "OK: ht_resetPlayerPosition_click"
+    return "ERR: ht_resetPlayerPosition_click"
+
+def test_ht_resetPlayerPosition_initial(
+) -> str:
+    c = ht_createContext()
+
+    c.scene = "scn1"
+    c.sceneCfgTrees = {
+        "scn1": {
+            "player": {
+                "base": 50,
+                "left": 100
+            }
+        }
+    }
+    c.recentField = "didResetScenePlayerSprites"
+
+    c = ht_resetPlayerPosition(c)
+    
+    if (
+        c.playerPosition[0] == 100 and
+        c.playerPosition[1] == 50
+    ):
+        return "OK: ht_resetPlayerPosition_initial"
+    return "ERR: ht_resetPlayerPosition_initial"
+
+def test_ht_resetPlayerPosition_scene(
+) -> str:
+    c = ht_createContext()
+    c.goto = {
+        "goto1": [700, "some", 30, 40, "yo"]
+    }
+    c.selectedGoto = "goto1"
+    c.recentField = "scene"
+    c = ht_resetPlayerPosition(c)
+    if (
+        c.playerPosition[0] == 40 and
+        c.playerPosition[1] == 30
+    ):
+        return "OK: ht_resetPlayerPosition_scene"
+    return "ERR: ht_resetPlayerPosition_scene"
+
 def test_ht_resetSelectedGoto(
 ) -> str:
     c = ht_createContext()
