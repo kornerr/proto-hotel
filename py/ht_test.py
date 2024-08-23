@@ -16,6 +16,21 @@ def test_ht_delayScene(
         return "OK: ht_delayScene"
     return "ERR: ht_delayScene"
 
+def test_ht_resetSelectedGoto(
+) -> str:
+    c = ht_createContext()
+    c.goto = {
+        "goto1": [700, "some", None, None, "yo"]
+    }
+    c.selectedItem = "some"
+    c.recentField = "selectedItem"
+    c = ht_resetSelectedGoto(c)
+    if (
+        c.selectedGoto == "goto1"
+    ):
+        return "OK: ht_resetSelectedGoto"
+    return "ERR: ht_resetSelectedGoto"
+
 def test_ht_selectComment(
 ) -> str:
     c = ht_createContext()

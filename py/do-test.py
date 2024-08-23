@@ -26,6 +26,7 @@ functions = [
     test_ht_aux_itemComment,
     test_ht_aux_itemGoto,
     test_ht_delayScene,
+    test_ht_resetSelectedGoto,
     test_ht_selectComment,
 ]
 
