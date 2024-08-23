@@ -15,3 +15,19 @@ def test_ht_aux_itemComment(
     ):
         return "OK: ht_aux_itemComment"
     return "ERR: ht_aux_itemComment"
+
+def test_ht_aux_itemGoto(
+) -> str:
+    goto = {
+        "goto1": [200, "door1", 50, 100, "yo"],
+        "goto2": [None, "door2", None, None, "another"],
+    }
+    r1 = ht_aux_itemGoto(goto, "door1")
+    r2 = ht_aux_itemGoto(goto, "door2")
+
+    if (
+        r1 == "goto1" and
+        r2 == "goto2"
+    ):
+        return "OK: ht_aux_itemGoto"
+    return "ERR: ht_aux_itemGoto"

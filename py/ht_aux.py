@@ -15,7 +15,7 @@ def ht_aux_itemComment(
 
 # Find goto associated with the item
 def ht_aux_itemGoto(
-    goto: dict[str, tuple[str, float, float, str]],
+    goto: dict[str, tuple[float, str, float, float, str]],
     item: str
 ) -> str:
     for name in goto:

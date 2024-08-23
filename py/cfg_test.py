@@ -52,14 +52,20 @@ def test_cfg_parseSceneGoto(
             "goto \"floor\"": {
                 "item": "door",
                 "scene": "basement"
+            },
+            "goto \"floor2\"": {
+                "item": "door",
+                "playerBase": 100,
+                "scene": "basement"
             }
         }
     }
     c.recentField = "sceneCfgTrees"
     c = cfg_parseSceneGoto(c)
     if (
-        cld_len(c.goto) == 1 and
-        c.goto["floor"][0] == "door"
+        cld_len(c.goto) == 2 and
+        c.goto["floor"][1] == "door",
+        c.goto["floor2"][2] == 100,
     ):
         return "OK: cfg_parseSceneGoto"
     return "ERR: cfg_parseSceneGoto"

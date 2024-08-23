@@ -24,6 +24,7 @@ functions = [
     test_cfg_aux_treeSetKeyValue,
     test_desc_aux_isVisible,
     test_ht_aux_itemComment,
+    test_ht_aux_itemGoto,
     test_ht_selectComment,
 ]
 
