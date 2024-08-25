@@ -35,6 +35,7 @@ ctrl.registerFunctions([
     fs_readConfig,
     fs_readSceneConfigs,
     ht_delayScene,
+    ht_resetPlayerAvailability,
     ht_resetPlayerPosition,
     ht_resetSelectedGoto,
     ht_selectComment,

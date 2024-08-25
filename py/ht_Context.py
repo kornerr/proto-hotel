@@ -13,6 +13,7 @@ class ht_Context:
         self.didLaunch = False
         self.didLoadConfigTextures = False
         self.goto = {}
+        self.hasPlayer = False
         self.hideStaticComment = None
         self.playerPosition = []
         self.recentField = "none"

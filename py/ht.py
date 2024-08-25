@@ -22,10 +22,28 @@ def ht_delayScene(
     c.recentField = "none"
     return c
 
-# Reset player position
+# Reset player availability
 #
 # Conditions:
 # 1. Player sprites have been reset due to scene loading for the first time
+@cld_by_value
+def ht_resetPlayerAvailability(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "didResetScenePlayerSprites"
+    ):
+        c.hasPlayer = ("player" in c.sceneCfgTrees[c.scene])
+        c.recentField = "hasPlayer"
+        return c
+
+    c.recentField = "none"
+    return c
+
+# Reset player position
+#
+# Conditions:
+# 1. Player availability have been reset due to scene loading for the first time
 # 2. Mouse has been clicked
 # 3. Delayed scene has been activated
 @cld_by_value
@@ -33,7 +51,8 @@ def ht_resetPlayerPosition(
     c: ht_Context
 ) -> ht_Context:
     if (
-        c.recentField == "didResetScenePlayerSprites" and
+        c.recentField == "hasPlayer" and
+        c.hasPlayer and
         cld_len(c.playerPosition) == 0
     ):
         tree = c.sceneCfgTrees[c.scene]
@@ -44,7 +63,8 @@ def ht_resetPlayerPosition(
         return c
 
     if (
-        c.recentField == "didClickMouse"
+        c.recentField == "didClickMouse" and
+        c.hasPlayer
     ):
         left = c.didClickMouse[0]
         top = c.playerPosition[1]
@@ -54,6 +74,7 @@ def ht_resetPlayerPosition(
 
     if (
         c.recentField == "scene" and
+        c.hasPlayer and
         c.selectedGoto is not None and
         c.goto[c.selectedGoto][2] is not None and
         c.goto[c.selectedGoto][3] is not None

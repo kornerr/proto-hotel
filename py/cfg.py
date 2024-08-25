@@ -105,7 +105,7 @@ def cfg_parseSceneGoto(
             name = cfg_aux_subsectionName(key)
             item = tree[key]
             goto[name] = [
-                item["delay"] if "delay" in item else None,
+                item["delay"] if "delay" in item else 0,
                 item["item"],
                 item["playerBase"] if "playerBase" in item else None,
                 item["playerLeft"] if "playerLeft" in item else None,
