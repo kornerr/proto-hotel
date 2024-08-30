@@ -51,6 +51,7 @@ def cfg_parseSceneComments(
                 item["static"]
             ]
     c.comments = comms
+    print("cfg_parseSC comms:", comms)
     c.recentField = "comments"
     return c
 
