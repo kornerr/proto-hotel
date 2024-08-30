@@ -212,3 +212,19 @@ def desktop_selectItem(p):
         return
     item = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
     p.ctrl.set("selectedItem", item)
+
+
+
+
+# See if GIFs work
+def desktop_checkGIF(p):
+    if (
+        p.c.recentField != "didClickMouse"
+    ):
+        return
+    path = p.c.cfgDir + "/img/123.gif"
+    sprite = arcade.load_animated_gif(path)
+    sprite.left = 200
+    sprite.top = 200
+    sprite.visible = True
+    p.itemSprites.append(sprite)
