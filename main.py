@@ -42,7 +42,7 @@ ctrl.registerFunctions([
 ])
 
 def printDbg(c):
-  print(f"Dbg key/value: '{c.recentField}'/'{c.field(c.recentField)}'")
+    print(f"Dbg key/value: '{c.recentField}'/'{c.field(c.recentField)}'")
 ctrl.registerCallback(printDbg)
 
 p = desktop_Platform()

@@ -5,7 +5,6 @@ def ht_aux_itemComment(
     comments: dict[str, tuple[float, str, str]],
     item: str
 ) -> str:
-    print("ht_aux_itemC", comments, item)
     for name in comments:
         d = comments[name]
         if (

@@ -30,7 +30,11 @@ def cfg_parseSceneComments(
     c: ht_Context
 ) -> ht_Context:
     if (
-        c.recentField == "sceneCfgTrees"
+        c.recentField == "sceneCfgTrees" or
+        (
+            c.recentField == "scene" and
+            c.selectedItem is not None
+        )
     ):
         pass
     else:
@@ -51,7 +55,6 @@ def cfg_parseSceneComments(
                 item["static"]
             ]
     c.comments = comms
-    print("cfg_parseSC comms:", comms)
     c.recentField = "comments"
     return c
 
