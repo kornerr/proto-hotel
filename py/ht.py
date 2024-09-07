@@ -45,7 +45,7 @@ def ht_resetPlayerAvailability(
 # Conditions:
 # 1. Player availability have been reset due to scene loading for the first time
 # 2. Mouse has been clicked
-# 3. Delayed scene has been activated
+# 3. (Delayed) scene has been activated
 @cld_by_value
 def ht_resetPlayerPosition(
     c: ht_Context

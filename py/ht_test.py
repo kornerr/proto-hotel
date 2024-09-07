@@ -35,8 +35,9 @@ def test_ht_resetPlayerAvailability(
 def test_ht_resetPlayerPosition_click(
 ) -> str:
     c = ht_createContext()
-    c.playerPosition = [20, 30]
+    c.hasPlayer = True
     c.didClickMouse = [100, 150]
+    c.playerPosition = [20, 30]
     c.recentField = "didClickMouse"
     c = ht_resetPlayerPosition(c)
     if (
@@ -50,6 +51,7 @@ def test_ht_resetPlayerPosition_initial(
 ) -> str:
     c = ht_createContext()
 
+    c.hasPlayer = True
     c.scene = "scn1"
     c.sceneCfgTrees = {
         "scn1": {
@@ -59,7 +61,7 @@ def test_ht_resetPlayerPosition_initial(
             }
         }
     }
-    c.recentField = "didResetScenePlayerSprites"
+    c.recentField = "hasPlayer"
 
     c = ht_resetPlayerPosition(c)
     
@@ -76,6 +78,7 @@ def test_ht_resetPlayerPosition_scene(
     c.goto = {
         "goto1": [700, "some", 30, 40, "yo"]
     }
+    c.hasPlayer = True
     c.selectedGoto = "goto1"
     c.recentField = "scene"
     c = ht_resetPlayerPosition(c)
