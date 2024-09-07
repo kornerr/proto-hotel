@@ -50,7 +50,7 @@ def cfg_parseSceneComments(
             name = cfg_aux_subsectionName(key)
             item = tree[key]
             comms[name] = [
-                float(item["delay"]),
+                float(item["duration"]),
                 item["item"],
                 item["static"]
             ]

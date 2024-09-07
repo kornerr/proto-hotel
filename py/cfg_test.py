@@ -28,7 +28,7 @@ def test_cfg_parseSceneComments(
     c.sceneCfgTrees = {
         "scn1": {
             "comment \"do-smth\"": {
-                "delay": "1000",
+                "duration": "1000",
                 "item": "door",
                 "static": "warning"
             }
