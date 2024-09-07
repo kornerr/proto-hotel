@@ -16,6 +16,22 @@ def test_ht_delayScene(
         return "OK: ht_delayScene"
     return "ERR: ht_delayScene"
 
+def test_ht_resetPlayerAvailability(
+) -> str:
+    c = ht_createContext()
+    c.scene = "scn1"
+    c.sceneCfgTrees = {
+        "scn1": {
+        }
+    }
+    c.recentField = "didResetScenePlayerSprites"
+    c = ht_resetPlayerAvailability(c)
+    if (
+        c.hasPlayer == False
+    ):
+        return "OK: ht_resetPlayerAvailability"
+    return "ERR: ht_resetPlayerAvailability"
+
 def test_ht_resetPlayerPosition_click(
 ) -> str:
     c = ht_createContext()
