@@ -216,6 +216,26 @@ def desktop_selectItem(p):
 
 
 
+import arcade
+
+
+# See if audio works
+def desktop_checkAudioLoad(p):
+    if (
+        p.c.recentField != "cfgTree"
+    ):
+        return
+    path = p.c.cfgDir + "/snd/342200__christopherderp__videogame-menu-button-click.wav"
+    p.checkAudio = arcade.load_sound(path)
+    print("ИГР Did load sound")
+
+def desktop_checkAudioPlay(p):
+    if (
+        p.c.recentField != "didClickMouse"
+    ):
+        return
+    arcade.play_sound(p.checkAudio, pan = -1)
+
 # See if GIFs work
 def desktop_checkGIF(p):
     if (

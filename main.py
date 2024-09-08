@@ -66,6 +66,8 @@ def process(c):
   desktop_resetSceneStaticSprites(p)
   desktop_selectItem(p)
   #desktop_checkGIF(p)
+  desktop_checkAudioLoad(p)
+  desktop_checkAudioPlay(p)
 ctrl.registerCallback(process)
 
 ctrl.set("cfgPath", CFG)
