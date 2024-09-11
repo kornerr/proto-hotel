@@ -225,7 +225,7 @@ def desktop_checkAudioLoad(p):
         p.c.recentField != "cfgTree"
     ):
         return
-    path = p.c.cfgDir + "/snd/342200__christopherderp__videogame-menu-button-click.wav"
+    path = p.c.cfgDir + "/res/snd/342200__christopherderp__videogame-menu-button-click.wav"
     p.checkAudio = arcade.load_sound(path)
     print("ИГР Did load sound")
 
