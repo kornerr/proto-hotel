@@ -61,3 +61,26 @@ def fs_readSceneConfigs(
 
     c.recentField = "none"
     return c
+
+# Read sound contents for each sound config
+#
+# Conditions:
+# 1. Sounds are now known
+@cld_by_value
+def fs_readSoundConfigs(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "sounds"
+    ):
+        d = {}
+        for name in c.sounds:
+            file = c.sounds[name]
+            path = c.cfgDir + "/" + file
+            d[name] = fs_aux_readFile(path)
+        c.soundCfgContents = d
+        c.recentField = "soundCfgContents"
+        return c
+
+    c.recentField = "none"
+    return c

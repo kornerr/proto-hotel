@@ -34,6 +34,7 @@ ctrl.registerFunctions([
     fs_locateConfigDir,
     fs_readConfig,
     fs_readSceneConfigs,
+    fs_readSoundConfigs,
     ht_delayScene,
     ht_resetPlayerAvailability,
     ht_resetPlayerPosition,
@@ -42,7 +43,15 @@ ctrl.registerFunctions([
 ])
 
 def printDbg(c):
-    print(f"Dbg key/value: '{c.recentField}'/'{c.field(c.recentField)}'")
+    fieldValue = f"{c.field(c.recentField)}"
+    # Limit debug output length.
+    limit = 40
+    if (
+        cld_len(fieldValue) > limit
+    ):
+        fieldValue = fieldValue[:limit] + "..."
+        
+    print(f"Dbg key/value: '{c.recentField}'/'{fieldValue}'")
 ctrl.registerCallback(printDbg)
 
 p = desktop_Platform()
@@ -55,7 +64,7 @@ def process(c):
   # Copy context to platform.
   p.c = c
   # Perform context dependent calls of desktop functions.
-  # Similar to context functions, but no platform is returned.
+  # Similar to context functions, but nothing is returned.
   desktop_applyConfigInit(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)

@@ -24,6 +24,8 @@ class ht_Context:
         self.selectedComment = None
         self.selectedGoto = None
         self.selectedItem = None
+        self.soundCfgContents = {}
+        self.soundCfgTrees = {}
         self.sounds = {}
         self.windowAntialiasing = False
         self.windowBackgroundColor = "#000000"
