@@ -109,3 +109,21 @@ def test_cfg_parseScenes(
     ):
         return "OK: cfg_parseScenes"
     return "ERR: cfg_parseScenes"
+
+def test_cfg_parseSounds(
+) -> str:
+    c = ht_createContext()
+    c.cfgTree = {
+        "sounds": {
+            "bg": "res/snd/bg.wav",
+            "click": "res/snd/click.wav",
+        }
+    }
+    c.recentField = "cfgTree"
+    c = cfg_parseSounds(c)
+    if (
+        cld_len(c.sounds) == 2 and
+        c.sounds["click"] == "res/snd/click.wav"
+    ):
+        return "OK: cfg_parseSounds"
+    return "ERR: cfg_parseSounds"
