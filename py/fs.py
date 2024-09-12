@@ -73,10 +73,12 @@ def fs_readSoundConfigs(
     if (
         c.recentField == "sounds"
     ):
+        print("ИГР fs_readSC-1")
         d = {}
         for name in c.sounds:
             file = c.sounds[name]
             path = c.cfgDir + "/" + file
+            print(f"ИГР fs_readSC-1 path: '{path}'")
             d[name] = fs_aux_readFile(path)
         c.soundCfgContents = d
         c.recentField = "soundCfgContents"

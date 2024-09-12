@@ -31,6 +31,7 @@ ctrl.registerFunctions([
     cfg_parseSceneConfigTrees,
     cfg_parseSceneGoto,
     cfg_parseScenes,
+    cfg_parseSounds,
     fs_locateConfigDir,
     fs_readConfig,
     fs_readSceneConfigs,
