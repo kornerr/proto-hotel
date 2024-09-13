@@ -113,7 +113,7 @@ def desktop_aux_firstVisibleItemAt(
 
     return None
 
-def desktop_loadSound(
+def desktop_aux_loadSound(
     resDir: str,
     desc: dict[str, str]
 ):
