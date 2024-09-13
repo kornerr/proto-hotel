@@ -145,6 +145,28 @@ def cfg_parseScenes(
     c.recentField = "scenes"
     return c
 
+# Construct name -> key -> value trees from sound config contents
+#
+# Conditions:
+# 1. Sound config contents have just become available
+@cld_by_value
+def cfg_parseSoundConfigTrees(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "soundCfgContents"
+    ):
+        trees = {}
+        for snd in c.soundCfgContents:
+            contents = c.soundCfgContents[snd]
+            trees[snd] = cfg_aux_tree(contents)
+        c.soundCfgTrees = trees
+        c.recentField = "soundCfgTrees"
+        return c
+
+    c.recentField = "none"
+    return c
+
 # Construct sound -> file from config tree
 #
 # Conditions:

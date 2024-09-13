@@ -18,6 +18,7 @@ functions = [
     test_cfg_parseSceneComments,
     test_cfg_parseSceneGoto,
     test_cfg_parseScenes,
+    test_cfg_parseSoundConfigTrees,
     test_cfg_parseSounds,
     test_cfg_aux_subsectionName,
     test_cfg_aux_tree,
