@@ -112,6 +112,7 @@ def ht_resetSelectedGoto(
 #
 # Conditions:
 # 1. Item with an associated sound has just been selected
+# 2. Scene with an associated sound has just launched or the game just loaded
 @cld_by_value
 def ht_resetSelectedSound(
     c: ht_Context
@@ -120,9 +121,22 @@ def ht_resetSelectedSound(
         c.recentField == "selectedItem" and
         c.selectedItem is not None
     ):
-        c.selectedSound = ht_aux_itemSound(c.soundCfgTrees, c.selectedItem)
+        c.selectedSound = ht_aux_findSound(c.soundCfgTrees, "item", c.selectedItem)
         c.recentField = "selectedSound"
         return c
+
+    if (
+        (
+            c.recentField == "scene" or
+            c.recentField == "didLaunch"
+        ) and
+        c.scene is not None
+    ):
+        snd = ht_aux_findSound(c.soundCfgTrees, "scene", c.scene)
+        if (snd is not None):
+            c.selectedSound = snd
+            c.recentField = "selectedSound"
+            return c
 
     c.recentField = "none"
     return c

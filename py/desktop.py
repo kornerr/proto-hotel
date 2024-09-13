@@ -69,7 +69,7 @@ def desktop_movePlayerInstantly(p):
 # Play sound
 #
 # Conditions:
-# 1. Item is selected
+# 1. Sound is selected
 def desktop_playSound(p):
     if (
         p.c.recentField == "selectedSound" and

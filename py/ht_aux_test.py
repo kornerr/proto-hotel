@@ -32,7 +32,7 @@ def test_ht_aux_itemGoto(
         return "OK: ht_aux_itemGoto"
     return "ERR: ht_aux_itemGoto"
 
-def test_ht_aux_itemSound(
+def test_ht_aux_findSound(
 ) -> str:
     soundCfgTrees = {
         "click": {
@@ -44,7 +44,7 @@ def test_ht_aux_itemSound(
             }
         }
     }
-    snd = ht_aux_itemSound(soundCfgTrees, "start")
+    snd = ht_aux_findSound(soundCfgTrees, "item", "start")
 
     if (
         snd == "click"

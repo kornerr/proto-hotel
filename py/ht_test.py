@@ -114,14 +114,22 @@ def test_ht_resetSelectedSound(
             },
             "play \"when-clicked-start\"": {
                 "item": "start",
-            }
+            },
+            "play \"when-scene-launched\"": {
+                "scene": "splash",
+            },
         }
     }
     c.selectedItem = "start"
     c.recentField = "selectedItem"
-    c = ht_resetSelectedSound(c)
+    cc = copy.deepcopy(c)
+    c1 = ht_resetSelectedSound(cc)
+    c.scene = "splash"
+    c.recentField = "scene"
+    c2 = ht_resetSelectedSound(c)
     if (
-        c.selectedSound == "click"
+        c1.selectedSound == "click" and
+        c2.selectedSound == "click"
     ):
         return "OK: ht_resetSelectedSound"
     return "ERR: ht_resetSelectedSound"
