@@ -25,6 +25,7 @@ class ht_Context:
         self.selectedComment = None
         self.selectedGoto = None
         self.selectedItem = None
+        self.selectedSound = None
         self.soundCfgContents = {}
         self.soundCfgTrees = {}
         self.sounds = {}

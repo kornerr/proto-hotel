@@ -126,3 +126,22 @@ def ht_selectComment(
 
     c.recentField = "none"
     return c
+
+# Select sound (i.e., play it)
+#
+# Conditions:
+# 1. Item with an associated sound has just been selected
+@cld_by_value
+def ht_selectSound(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "selectedItem" and
+        c.selectedItem is not None
+    ):
+        c.selectedSound = ht_aux_itemSound(c.sounds, c.selectedItem)
+        c.recentField = "selectedSound"
+        return c
+
+    c.recentField = "none"
+    return c

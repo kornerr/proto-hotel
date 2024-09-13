@@ -66,6 +66,17 @@ def desktop_movePlayerInstantly(p):
         p.player.left = p.c.playerPosition[0]
         p.player.top = p.c.playerPosition[1]
 
+# Play sound
+#
+# Conditions:
+# 1. Item is selected
+def desktop_checkAudioPlay(p):
+    if (
+        p.c.recentField != "didClickMouse"
+    ):
+        return
+    arcade.play_sound(p.checkAudio, pan = -1)
+
 # Reset comment visibility
 #
 # Conditions:
@@ -230,18 +241,7 @@ def desktop_selectItem(p):
     item = desktop_aux_firstVisibleItemAt(p, p.c.didClickMouse)
     p.ctrl.set("selectedItem", item)
 
-
-
-
 import arcade
-
-
-def desktop_checkAudioPlay(p):
-    if (
-        p.c.recentField != "didClickMouse"
-    ):
-        return
-    arcade.play_sound(p.checkAudio, pan = -1)
 
 # See if GIFs work
 def desktop_checkGIF(p):
