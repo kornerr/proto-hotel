@@ -113,6 +113,13 @@ def desktop_aux_firstVisibleItemAt(
 
     return None
 
+def desktop_loadSound(
+    resDir: str,
+    desc: dict[str, str]
+):
+    path = resDir + "/" + desc["file"]
+    return arcade.load_sound(path)
+
 def desktop_aux_loadTexture(
     resDir: str,
     desc: dict[str, str]

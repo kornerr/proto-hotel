@@ -11,6 +11,7 @@ class ht_Context:
         self.didResetSceneItemSprites = False
         self.didResetSceneStaticSprites = False
         self.didLaunch = False
+        self.didLoadConfigSounds = False
         self.didLoadConfigTextures = False
         self.goto = {}
         self.hasPlayer = False

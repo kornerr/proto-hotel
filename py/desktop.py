@@ -18,6 +18,23 @@ def desktop_applyConfigInit(p):
         value = desktop_aux_convertValue(val)
         p.ctrl.set(key, value)
 
+# Load sounds
+#
+# Conditions:
+# 1. Sound config tree has just become available
+def desktop_loadConfigSounds(p):
+    if (
+        p.c.recentField != "soundCfgTrees"
+    ):
+        return
+
+    for key in p.c.soundCfgTrees:
+        snd = desktop_aux_loadSound(p.c.cfgDir, p.c.soundCfgTrees[key]["init"])
+        p.audios[key] = snd
+
+    # Report finish.
+    p.ctrl.set("didLoadConfigSounds", True)
+
 # Load textures
 #
 # Conditions:
@@ -218,16 +235,6 @@ def desktop_selectItem(p):
 
 import arcade
 
-
-# See if audio works
-def desktop_checkAudioLoad(p):
-    if (
-        p.c.recentField != "cfgTree"
-    ):
-        return
-    path = p.c.cfgDir + "/res/snd/342200__christopherderp__videogame-menu-button-click.wav"
-    p.checkAudio = arcade.load_sound(path)
-    print("ИГР Did load sound")
 
 def desktop_checkAudioPlay(p):
     if (

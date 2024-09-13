@@ -68,6 +68,7 @@ def process(c):
   # Perform context dependent calls of desktop functions.
   # Similar to context functions, but nothing is returned.
   desktop_applyConfigInit(p)
+  desktop_loadConfigSounds(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
   desktop_resetCommentVisibility(p)
@@ -77,8 +78,8 @@ def process(c):
   desktop_resetSceneStaticSprites(p)
   desktop_selectItem(p)
   #desktop_checkGIF(p)
-  desktop_checkAudioLoad(p)
-  desktop_checkAudioPlay(p)
+  #desktop_checkAudioLoad(p)
+  #desktop_checkAudioPlay(p)
 ctrl.registerCallback(process)
 
 ctrl.set("cfgPath", CFG)

@@ -3,6 +3,7 @@ from desktop_Timer import *
 
 class desktop_Platform:
     def __init__(self):
+        self.audios = {}
         self.c = None
         self.ctrl = None
         self.items = {}
