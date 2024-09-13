@@ -41,6 +41,7 @@ ctrl.registerFunctions([
     ht_resetPlayerAvailability,
     ht_resetPlayerPosition,
     ht_resetSelectedGoto,
+    ht_resetSelectedSound,
     ht_selectComment,
 ])
 
@@ -71,6 +72,7 @@ def process(c):
   desktop_loadConfigSounds(p)
   desktop_loadConfigTextures(p)
   desktop_movePlayerInstantly(p)
+  desktop_playSound(p)
   desktop_resetCommentVisibility(p)
   desktop_resetSceneAfterDelay(p)
   desktop_resetSceneItemSprites(p)

@@ -70,12 +70,13 @@ def desktop_movePlayerInstantly(p):
 #
 # Conditions:
 # 1. Item is selected
-def desktop_checkAudioPlay(p):
+def desktop_playSound(p):
     if (
-        p.c.recentField != "didClickMouse"
+        p.c.recentField == "selectedSound" and
+        p.c.selectedSound != None
     ):
-        return
-    arcade.play_sound(p.checkAudio, pan = -1)
+        audio = p.audios[p.c.selectedSound]
+        arcade.play_sound(audio, pan = -1)
 
 # Reset comment visibility
 #

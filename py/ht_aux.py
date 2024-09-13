@@ -36,6 +36,7 @@ def ht_aux_itemSound(
         for key in tree:
             if (
                 cld_startswith(key, "play ") and
+                "item" in tree[key] and
                 tree[key]["item"] == item
             ):
                 return name
