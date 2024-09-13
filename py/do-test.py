@@ -27,6 +27,7 @@ functions = [
     test_desc_aux_isVisible,
     test_ht_aux_itemComment,
     test_ht_aux_itemGoto,
+    test_ht_aux_itemSound,
     test_ht_delayScene,
     test_ht_resetPlayerAvailability,
     test_ht_resetPlayerPosition_click,

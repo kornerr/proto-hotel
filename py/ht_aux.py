@@ -25,3 +25,18 @@ def ht_aux_itemGoto(
         ):
             return name
     return None
+
+# Find sound associated with the item
+def ht_aux_itemSound(
+    soundCfgTrees: dict[str, dict[str, str]],
+    item: str
+) -> str:
+    for name in soundCfgTrees:
+        tree = soundCfgTrees[name]
+        for key in tree:
+            if (
+                cld_startswith(key, "play ") and
+                tree[key]["item"] == item
+            ):
+                return name
+    return None

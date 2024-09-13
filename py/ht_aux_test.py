@@ -31,3 +31,23 @@ def test_ht_aux_itemGoto(
     ):
         return "OK: ht_aux_itemGoto"
     return "ERR: ht_aux_itemGoto"
+
+def test_ht_aux_itemSound(
+) -> str:
+    soundCfgTrees = {
+        "click": {
+            "init": {
+                "file": "res/sdn/click.wav",
+            },
+            "play \"when-clicked-start\"": {
+                "item": "start",
+            }
+        }
+    }
+    snd = ht_aux_itemSound(soundCfgTrees, "start")
+
+    if (
+        snd == "click"
+    ):
+        return "OK: ht_aux_itemSound"
+    return "ERR: ht_aux_itemSound"
