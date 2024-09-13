@@ -104,6 +104,28 @@ def test_ht_resetSelectedGoto(
         return "OK: ht_resetSelectedGoto"
     return "ERR: ht_resetSelectedGoto"
 
+def test_ht_resetSelectedSound(
+) -> str:
+    c = ht_createContext()
+    c.soundCfgTrees = {
+        "click": {
+            "init": {
+                "file": "res/sdn/click.wav",
+            },
+            "play \"when-clicked-start\"": {
+                "item": "start",
+            }
+        }
+    }
+    c.selectedItem = "start"
+    c.recentField = "selectedItem"
+    c = ht_resetSelectedSound(c)
+    if (
+        c.selectedSound == "click"
+    ):
+        return "OK: ht_resetSelectedSound"
+    return "ERR: ht_resetSelectedSound"
+
 def test_ht_selectComment(
 ) -> str:
     c = ht_createContext()
@@ -119,3 +141,4 @@ def test_ht_selectComment(
     ):
         return "OK: ht_selectComment"
     return "ERR: ht_selectComment"
+

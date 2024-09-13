@@ -34,6 +34,7 @@ functions = [
     test_ht_resetPlayerPosition_initial,
     test_ht_resetPlayerPosition_scene,
     test_ht_resetSelectedGoto,
+    test_ht_resetSelectedSound,
     test_ht_selectComment,
 ]
 

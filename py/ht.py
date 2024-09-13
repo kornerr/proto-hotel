@@ -108,6 +108,25 @@ def ht_resetSelectedGoto(
     c.recentField = "none"
     return c
 
+# Select sound
+#
+# Conditions:
+# 1. Item with an associated sound has just been selected
+@cld_by_value
+def ht_resetSelectedSound(
+    c: ht_Context
+) -> ht_Context:
+    if (
+        c.recentField == "selectedItem" and
+        c.selectedItem is not None
+    ):
+        c.selectedSound = ht_aux_itemSound(c.soundCfgTrees, c.selectedItem)
+        c.recentField = "selectedSound"
+        return c
+
+    c.recentField = "none"
+    return c
+
 # Select comment (i.e., make it visible)
 #
 # Conditions:
@@ -122,25 +141,6 @@ def ht_selectComment(
     ):
         c.selectedComment = ht_aux_itemComment(c.comments, c.selectedItem)
         c.recentField = "selectedComment"
-        return c
-
-    c.recentField = "none"
-    return c
-
-# Select sound (i.e., play it)
-#
-# Conditions:
-# 1. Item with an associated sound has just been selected
-@cld_by_value
-def ht_selectSound(
-    c: ht_Context
-) -> ht_Context:
-    if (
-        c.recentField == "selectedItem" and
-        c.selectedItem is not None
-    ):
-        c.selectedSound = ht_aux_itemSound(c.sounds, c.selectedItem)
-        c.recentField = "selectedSound"
         return c
 
     c.recentField = "none"
